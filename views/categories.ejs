@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/jquery.formstyler.css" />
+    <!--<link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+   <script>
+      let authData = JSON.parse('<%- JSON.stringify(authData) %>');
+      let userLikedItems = JSON.parse('<%- JSON.stringify(userLikedItems) %>');
+      let categories = JSON.parse('<%- JSON.stringify(categories) %>');
+   </script>
+  <body>
+    <header class="header">
+      <section class="header1">
+        <div class="header__top">
+          <div class="container">
+            <div class="header__contacts">
+              <a class="header__phone" href="tel:380632821043"
+                >+38 (063) 282 10 43</a
+              >
+              <a
+                class="header__email"
+                href="mailto:irynamakarmyhailivna@gmail.com"
+                >mon.amour.wedding.agency@gmail.com</a
+              >
+              <!--<a data-fancybox data-src="#modal" href="javascript:;" class="header__btn-signin" href="#">
+                        Реєстрація
+                    </a>
+                    <a data-fancybox data-src="#modal1" href="javascript:;" class="header__btn-signup" href="#">
+                        Вхід
+                    </a>-->
+              <% if (!authData.state) { %>
+              <a
+                data-fancybox
+                data-src="#modal"
+                href="javascript:;"
+                class="header__btn-signin"
+                href="#"
+              >
+                Реєстрація
+              </a>
+              <a
+                data-fancybox
+                data-src="#modal1"
+                href="javascript:;"
+                class="header__btn-signup"
+                href="#"
+              >
+                Вхід
+              </a>
+              <% } else if (authData.state && authData.name) { %> 
+              <a class="box__likes" onclick="showLiked(this)">
+                             Переглянути вподобані послуги       
+              </a>
+              
+              Вітаємо, <%= authData.name %>! <% } %>
+            </div>
+          </div>
+        </div>
+        <div class="header__content">
+          <div class="container">
+            <div class="header__content-inner">
+              <div class="header__logo">
+                <a href="#">
+                  <img src="img/logo.png" alt="" />
+                </a>
+              </div>
+              <nav class="menu">
+                <div class="header__btn-menu">
+                  <span class="icon-list-ul"></span>
+                </div>
+                <ul>
+                  <li><a href="main#main">Головна</a></li>
+                  <li><a href="main#about">Про компанію</a></li>
+                  <li><a href="main#services">Послуги</a></li>
+                  <li><a href="main#achievement">Досягнення</a></li>
+                  <li><a href="main#reviews">Відгуки</a></li>
+                  <li><a href="main#contacts">Контакти</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <a name="about"></a>
+    <section class="about">
+      <div class="container">
+        <div class="about__inner">
+          <div class="about__title">
+            Виїзна церемонія
+          </div>
+          <div class="about__text">
+            Уявіть вишуканий декор: улюблені кольори, елегантні композиції з
+            квітів, кришталь, тьмяні світильники, гості в костюмах у гармонії з
+            оточенням, приголомшлива краса арки - все нібито зійшло з картинки!
+            Так, незвичайний весільний стиль здатний перетворити банальну
+            атмосферу святкування у казкову! Для втілення загальної концепції
+            іноді нам потрібно продумати кожен компонент стилю та декору - від
+            кольору стін у ресторані, до форми ґудзиків на куртці нареченого.
+            Але так легко пропустити що-небудь з поля зору в плутанині весілля!
+            Спокійно, просто спокійно ... чудовий відпочинок можна створити з
+            мінімальними зусиллями з вашого боку.
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+    
+    <a name="services"></a>
+    <section class="services">
+      <div class="container">
+        <div class="services__top">
+          <div class="services__title-box">
+            <div class="services__title">
+              Виїзна церемонія
+            </div>
+            <div class="services__text">
+              Комплексний підхід до ваших побажань.
+            </div>
+          </div>
+          <!--<div class="services__btn">
+                   <a href="services.html" target="_blank">
+                       Показати всі послуги
+                   </a>
+                </div>-->
+        </div>
+        <% 
+        let currentRow = 0;
+        const archRows = [[]];
+        categories.arches.forEach((arch, index) => {
+          if(index%3==0&&index!=0){
+            currentRow++;
+            archRows.push([]);
+          }
+          archRows[currentRow].push(arch);
+        });
+        console.log(archRows);
+        %>
+        <% for(let i =0; i<archRows.length; i++){ %>
+        <div class="services__items">
+        <% for(let j =0; j<archRows[i].length; j++){ %>
+          <div class="services__item">
+            <img src=<%= archRows[i][j].imagePath %> alt="" />
+            <!--<div class="services__item-title">
+                        Якась послуга 1
+                    </div>
+                    <div class="services__item-text">
+                        Ghhhhh jjjjjjjj
+                    </div>-->
+            <div class="services__item-btn2">
+              <a class="services__item-link" href="#"><%= archRows[i][j].priceName %></a>
+              <a
+                <% if(!authData.state){ %>
+                data-fancybox
+                <% } %>
+                data-src="#modal"
+                href="javascript:;"
+                onclick="likeItem(this)"
+                class="default-btn like-item-btn"
+                id=<%= `add-arches-${archRows[i][j].id}` %>
+              >
+              <% if(!archRows[i][j].added){ %>
+                Додати до вподобаних
+              <% } else { %>
+                Подобається вам
+              <% } %>
+              </a>
+            </div>
+          </div>
+        <% } %>
+        </div>
+        <% } %>
+      </div>
+    </section>
+
+
+
+
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="container">
+          <div class="footer__inner">
+            <a href="#">
+              <div class="to_top s-arrow" style="display: inline-block;"></div>
+            </a>
+            <div class="footer__info">
+              <div class="footer__title">
+                Mon Amour
+              </div>
+              <div class="footer__text">
+                Mon Amour - втілить ваші мрії у реальність.
+              </div>
+              <!--<a data-fancybox data-src="#modal" href="javascript:;" class="header__btn" href="#">
+                            Безкоштовна консультація
+                        </a>-->
+              <ul class="footer__list">
+                <li>
+                  <a class="footer__phone" href="tel:380632821043">
+                    +38 (063) 282 10 43</a
+                  >
+                </li>
+                <li><a href="#">irynamakarmyhailivna@gmail.com</a></li>
+                <li>
+                  <a class="footer__adress" href="#">Львів, вул.Бандери, 12</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__map">
+              <iframe
+                height="250px"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.3632889946152!2d24.0123311157092!3d49.83563107939527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add7a2c390e71%3A0xce87318e879dce52!2z0LLRg9C70LjRhtGPINCh0YLQtdC_0LDQvdCwINCR0LDQvdC00LXRgNC4LCAxMiwg0JvRjNCy0ZbQsiwg0JvRjNCy0ZbQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA3OTAwMA!5e0!3m2!1suk!2sua!4v1588627128833!5m2!1suk!2sua"
+                frameborder="0"
+                style="border: 0;"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copy">
+        <div class="container">
+          <div class="copy__text">
+            с 2020 Template by Iryna Makar. Всі права захищені.
+          </div>
+        </div>
+      </div>
+    </footer>
+        <div id="modal">
+      <form action="/register" method="POST">
+        <input type="text" id="name" name="name" required placeholder="ПІБ" />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Ваша електронна пошта"
+        />
+        <input type="text" placeholder="Ваш номер телефону" />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Пароль"
+        />
+        <input type="submit" id="registrationButton" value="Зареєструватися" />
+      </form>
+    </div>
+
+    <div id="modal1">
+      <form action="/login" method="POST">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Ваш логін"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="Ваш пароль"
+        />
+        <input type="submit" value="Увійти" />
+      </form>
+    </div>
+
+    <div id="likedItemsDiv" style="display:none;">
+      <div class="like">
+        <div class="like_1">
+        <label> Перелік ваших вподобаних послуг</label>
+      </div>
+        <div class="like_2">
+      <div id="likedItemsSearchDiv"> 
+        <input type="text" id="likedItemsSearchInput"> <!-- <label> Пошук </label> -->
+       <!-- <button class="default-btn-get" type="submit">
+          Отримати рекомендації
+        </button> -->
+        <a href="#" class="default-btn-get-Poshuk"> Пошук </a> 
+        <a href="advices1" class="default-btn-get"> Отримати рекомендації </a> 
+      </div>
+      
+    </div>
+    </div>
+    <div class="like-box">
+      <div id="likedItemsListDiv">
+        <ul id="likedItemsUl">
+          <% if(!userLikedItems.length) { %>
+          <li id="emptyLikedListMsgLi">
+            <div id="emptyLikedListMsgDiv">
+              Ви не добавили жодної послуги, добавте вподобані вами послуги, щоб отримати поради від адміністратора
+            </div>
+          </li>
+          <% } %>
+          <% for(let i =0; i<userLikedItems.length; i++){ %>
+            <li>
+              <div id="arches-<%= userLikedItems[i].id %>">
+                <img src=<%= userLikedItems[i].imagePath %> alt="">
+                <div><%= userLikedItems[i].priceName %></div> 
+              </div>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.formstyler.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/likeItem.js"></script>
+    <script src="js/showLiked.js"></script>
+  </body>
+</html>

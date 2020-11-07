@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/fonts.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="css/slick.css" />
+    <link rel="stylesheet" href="css/jquery.formstyler.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+  </head>
+  <body>
+    <header class="header">
+      <section class="header1">
+        <div class="header__top">
+          <div class="container">
+            <div class="header__contacts">
+              <a class="header__phone" href="tel:380632821043"
+                >+38 (063) 282 10 43</a
+              >
+              <a
+                class="header__email"
+                href="mailto:mon.amour.wedding.agency@gmail.com"
+                >mon.amour.wedding.agency@gmail.com</a
+              >
+              <% if (!authData.state) { %>
+              <a
+                data-fancybox
+                data-src="#modal"
+                href="javascript:;"
+                class="header__btn-signin"
+                href="#"
+              >
+                Реєстрація
+              </a>
+              <a
+                data-fancybox
+                data-src="#modal1"
+                href="javascript:;"
+                class="header__btn-signup"
+                href="#"
+              >
+                Вхід
+              </a>
+
+              <% } else if (authData.state && authData.name) { %> Вітаємо, <%=
+              authData.name %>! <% } %>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="header2">
+        <div class="header__content">
+          <div class="container">
+            <div class="header__content-inner">
+              <div class="header__logo">
+                <a href="#">
+                  <img src="img/logo.png" alt="" />
+                </a>
+              </div>
+              <nav class="menu">
+                <div class="header__btn-menu">
+                  <span class="icon-list-ul"></span>
+                </div>
+                <ul>
+                  <li><a href="#">Головна</a></li>
+                  <li><a href="#about">Про компанію</a></li>
+                  <li><a href="#services">Послуги</a></li>
+                  <li><a href="#achievement">Концепція</a></li>
+                  <li><a href="#reviews">Відгуки</a></li>
+                  <li><a href="#contacts">Контакти</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <section class="slider">
+      <!-- autoplay muted controls loop-->
+      <div class="video">
+        <video
+          class="video__media"
+          src="video/video.mp4"
+          autoplay
+          muted
+          loop
+        ></video>
+      </div>
+      <!-- <div class="audio">-->
+      <audio autoplay loop>
+        <source src="music/1.mp3" />
+      </audio>
+      <!--  </div>-->
+      <div class="container">
+        <div class="slider__inner">
+          <div class="slider__item-1">
+            <div class="slider__item-content">
+              <div class="slider__title">
+                Mon Amour
+              </div>
+              <div class="slider__text">
+                Mon Amour - втілить ваші мрії у реальність. Ви мрієте про
+                незабутню, яскраву церемонію за межами Рацсу? Вас не залишає
+                думка провести церемонію в особливій атмосфері, особливому
+                місці, гарним неповторним декором?
+              </div>
+              <!-- <a data-fancybox data-src="#modal" href="javascript:;" class="slider__btn default-btn">
+                            Залишити заявку
+                        </a>-->
+            </div>
+          </div>
+          <div class="slider__item-2">
+            <div class="slider__item-content">
+              <div class="slider__title">
+                Mon Amour
+              </div>
+              <div class="slider__text">
+                Ви обрали замість звичної, класичної арки фон у вигляді книги з
+                історією вашого кохання , двері, думаєте як об'єднати церемонію
+                та фотозону? Розкажи нам свою мрію. А ми дамо тобі те, про що ти
+                мрієш.
+              </div>
+              <!-- <a data-fancybox data-src="#modal" href="javascript:;" class="slider__btn default-btn">
+                            Залишити заявку
+                        </a>-->
+            </div>
+          </div>
+          <div class="slider__item-3">
+            <div class="slider__item-content">
+              <div class="slider__title">
+                Mon Amour
+              </div>
+              <div class="slider__text">
+                Вирішили створити частину декору свїми ручками або вдатися до
+                допомоги подружок? Mon Amour допоможе тобі втілити все у
+                реальність, а також зробить все за тебе. Розкажи нам свою мрію.
+                А ми дамо тобі те, про що ти мрієш.
+              </div>
+              <!-- <a data-fancybox data-src="#modal" href="javascript:;" class="slider__btn default-btn">
+                            Залишити заявку style="display: inline-block;"
+                        </a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <a name="services"></a>
+    <section class="services">
+      <div class="container">
+        <div class="services__top">
+          <div class="services__title-box">
+            <div class="services__title">
+              Послуги
+            </div>
+            <div class="services__text">
+              Комплексний підхід до ваших побажань.
+            </div>
+          </div>
+          <div class="services__btn">
+            <a href="services" target="_blank">
+              Показати всі послуги
+            </a>
+          </div>
+        </div>
+        <div class="services__items">
+          <div class="services__item">
+            <img src="img/services-1.png" alt="" />
+            <div class="services__item-title">
+              Ранок / Вінчання
+            </div>
+            <div class="services__item-text">
+              Зранку контролюємо збори наречених, доставку ранкової флористики
+              та вчасний доїзд підрядників. Допомагаємо провести фотосесію й
+              обряд благословення. До таїнства готуємо набір реквізиту і
+              потрібні документи, приділяємо увагу гостям, відповідаємо за
+              вінчальні атрибути.
+            </div>
+            <div class="services__item-btn">
+              <a class="services__item-link" href="#">Детальніше</a>
+              <!--<a data-fancybox data-src="#modal" href="javascript:;" class="default-btn">
+                        Замовити 1
+                       </a>-->
+            </div>
+          </div>
+          <div class="services__item">
+            <img src="img/services-2.png" alt="" />
+            <div class="services__item-title">
+              Весільний торт / Кенді бар
+            </div>
+            <div class="services__item-text">
+              Наше весільне агентство Mon Amour співпрацює з найкращою
+              кондитерською в Україні, для якої торт - це мистецтво, в яке вони
+              вкладають всю свою душу. За вашим бажанням ми можемо організувати
+              дегустацію та консультацію з шефом із кондитерських виробів.
+            </div>
+            <div class="services__item-btn">
+              <a class="services__item-link" href="#">Детальніше</a>
+              <!--<a data-fancybox data-src="#modal" href="javascript:;" class="default-btn">
+                           Замовити 2
+                       </a>-->
+            </div>
+          </div>
+          <div class="services__item">
+            <img src="img/services-3.png" alt="" />
+            <div class="services__item-title">
+              Виїзна церемонія
+            </div>
+            <div class="services__item-text">
+              До неї ведуться особливо ретельні приготування. Неодмінно
+              перевіряємо техніку, зовнішній вигляд території, наявність
+              необхідних предметів. Встигаємо зустріти ведучих і музичний
+              супровід, піклуватися про запрошених, розкласти квіти та
+              подарунки.
+            </div>
+            <a name="about"></a>
+            <div class="services__item-btn">
+              <a class="services__item-link" href="categories"
+                >Детальніше</a
+              >
+              <!--<a data-fancybox data-src="#modal" href="javascript:;" class="default-btn">
+                            Замовити 3
+                        </a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="container">
+        <div class="about__inner">
+          <div class="about__title">
+            Про компанію
+          </div>
+          <div class="about__text">
+            "..Ми постійно вдосконалюємось, тому що нас влаштовує тільки
+            найкращий результат без жодних компромісів!..""
+          </div>
+          <a href="about" class="about__btn default-btn">
+            Дізнатися більше
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="form">
+      <div class="container">
+        <div class="form__inner">
+          <div class="form__content">
+            <div class="form__title-box">
+              <div class="form__title">
+                Отримати консультацію
+              </div>
+              <div class="form__text">
+                Kомплексний підхід до ваших побажань.
+              </div>
+            </div>
+            <div class="form__box">
+              <form action="/sendMail" method="POST">
+                <div class="form__box-inner">
+                  <div class="form__box-left">
+                    <label>
+                      E-mail
+                      <input type="text" name="email" />
+                    </label>
+                    <label>
+                      Контактний телефон
+                      <input type="text" name="phone" />
+                    </label>
+                    <label>
+                      ПІБ
+                      <input type="text" name="username" />
+                    </label>
+                    <label>
+                      Тема питання
+                      <select name="questionType">
+                        <option>Виїзна церемонія</option>
+                        <option>Розваги</option>
+                        <option>Бенкетний зал</option>
+                        <option>Весільний торт Кенді бар</option>
+                        <option>Ранок нареченої</option>
+                        <option>Вінчання</option>
+                        <option>Флористика</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="form__box-right">
+                    <label>
+                      Повідомлення
+                      <textarea name="message"></textarea>
+                    </label>
+                    <button class="default-btn" type="submit">
+                      Отримати консультацію
+                    </button>
+                     <!-- <a href="about" class="default-btn"> Отримати консультацію </a> -->
+                    <a name="achievement"></a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="advantages">
+      <div class="container">
+        <div class="advantages__inner">
+          <div class="advantages__item">
+            <div class="advantages__title">
+              Індивідуальна концепція
+            </div>
+            <div class="advantages__text">
+              Концептуальні свята – велика любов. Тоді замість класичного
+              «зелено-білого весілля з душевними нотками», виходить абсолютно
+              дещо більше. Виходить унікальна та яскрава історія. Для прикладу
+              Magic in Love — справжній простір фантазії, виконаних бажань,
+              сюрпризів.
+            </div>
+          </div>
+          <div class="advantages__item">
+            <div class="advantages__title">
+              Персоналізація
+            </div>
+            <div class="advantages__text">
+              Особливий first look на локації, відеозвернення до батьків
+              (відзняте у балетній студіії дитинства) чи привітання від
+              супергероя семирічному хлопчику… Ми завжди створюємо емоційні,
+              неповторні моменти, в яких Ваша історія.
+            </div>
+          </div>
+          <div class="advantages__item">
+            <div class="advantages__title">
+              Масштаб
+            </div>
+            <div class="advantages__text">
+              Навіть у невеличких камерних подіях – WOW ефект. Цікаві ідеї,
+              незвичні декорації, вміння вражати й дивувати — наша візитна
+              карточка.
+            </div>
+          </div>
+        </div>
+      </div>
+      <a name="reviews"></a>
+    </section>
+    <section class="news">
+      <div class="container">
+        <div class="news__top">
+          <div class="news__title-box">
+            <div class="news__title">
+              Задоволені клієнти
+            </div>
+            <div class="news__text">
+              І ось цей ДЕНЬ НАСТАВ. Організатори працюють, наречені –
+              розважаються.
+            </div>
+          </div>
+          <div class="news__btn">
+            <a href="#">
+              Показати більше відгуків
+            </a>
+          </div>
+        </div>
+        <div class="news__inner">
+          <div class="news__slider">
+            <div class="news__slider-inner">
+              <div class="news__slider-item">
+                <div class="news__slider-title">
+                  Mon Amour - це казка!
+                </div>
+                <div class="news__slider-text">
+                  Ми дякуємо команді за те, що створили для нас ідеальне
+                  весілля, втіливши усі побажання! Дівчата приїжджали декілька
+                  разів в інше місто, щоб бути пристуніми на зустрічах із
+                  підрядниками, контролювали усе та помічали такі деталі, про
+                  існування котрих навіть не задумується жодна наречена.
+                </div>
+                <div class="news__slider-autor">
+                  Артем і Мирослава
+                </div>
+              </div>
+              <div class="news__slider-item">
+                <div class="news__slider-title">
+                  Mon Amour подарували чудове свято!
+                </div>
+                <div class="news__slider-text">
+                  Особлива подяка Насті, адже, окрім постійної підтримки та
+                  ідеальної роботи, без її допомоги я би так і не змогла
+                  визначитись із своїми сукнями? Mon Amour займається не лише
+                  організацією, вони стають феями-помічницями та подругами, які
+                  підтримують нарчених весь час підготовки.
+                </div>
+                <div class="news__slider-autor">
+                  Уляна та Павло
+                </div>
+              </div>
+              <div class="news__slider-item">
+                <div class="news__slider-title">
+                  Весілля - це легко, якщо з Mon Amour!
+                </div>
+                <div class="news__slider-text">
+                  Мені зовсім не зрозумілі ствердження деяких людей, що
+                  весільний день – це складно. Наш ідеальний день був неймовірно
+                  легким, веселим, чарівним. Ми ні на секунду не відчували
+                  якогось стресу чи хвилювань. Будь які побажання та казуси
+                  вирішувались в лічені хвилини, а про контроль за підрядниками
+                  ми навіть не задумувались.
+                </div>
+                <div class="news__slider-autor">
+                  Ліза та Роман
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="news__blog">
+            <div class="news__images">
+              <img src="img/news-1.jpg" alt="" />
+              <div class="news__date">03.08.</div>
+            </div>
+            <div class="news__blog-title">
+              Весілля Лізи та Романа
+            </div>
+            <div class="news__blog-text">
+              "..Я хочу, щоб усі фантазували, здивуйте нас!” — ця фраза
+              нареченого розпочала підготовку дуже особливого свята...""
+            </div>
+          </a>
+          <a href="#" class="news__blog">
+            <div class="news__images">
+              <img src="img/news-2.jpg" alt="" />
+              <div class="news__date">16.04</div>
+            </div>
+            <div class="news__blog-title">
+              "MAGIC IN LOVE"- Андрій та Юлія
+            </div>
+            <div class="news__blog-text">
+              "..Ще з першої миті ми знали — свято мусить бути WOW!..""
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    <a name="contacts"></a>
+
+    <footer class="footer">
+      <div class="footer__content">
+        <div class="container">
+          <div class="footer__inner">
+            <a href="#">
+              <div class="to_top s-arrow" style="display: inline-block;"></div>
+            </a>
+            <div class="footer__info">
+              <div class="footer__title">
+                Mon Amour
+              </div>
+              <div class="footer__text">
+                Mon Amour - втілить ваші мрії у реальність.
+              </div>
+              <!--<a data-fancybox data-src="#modal" href="javascript:;" class="header__btn" href="#">
+                            Безкоштовна консультація
+                        </a>-->
+              <ul class="footer__list">
+                <li>
+                  <a class="footer__phone" href="tel:380632821043">
+                    +38 (063) 282 10 43</a
+                  >
+                </li>
+                <li><a href="#">mon.amour.wedding.agency@gmail.com</a></li>
+                <li>
+                  <a class="footer__adress" href="#">Львів, вул.Бандери, 12</a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer__map">
+              <iframe
+                height="250px"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2573.3632889946152!2d24.0123311157092!3d49.83563107939527!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473add7a2c390e71%3A0xce87318e879dce52!2z0LLRg9C70LjRhtGPINCh0YLQtdC_0LDQvdCwINCR0LDQvdC00LXRgNC4LCAxMiwg0JvRjNCy0ZbQsiwg0JvRjNCy0ZbQstGB0YzQutCwINC-0LHQu9Cw0YHRgtGMLCA3OTAwMA!5e0!3m2!1suk!2sua!4v1588627128833!5m2!1suk!2sua"
+                frameborder="0"
+                style="border: 0;"
+                allowfullscreen=""
+                aria-hidden="false"
+                tabindex="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__copy">
+        <div class="container">
+          <div class="copy__text">
+            с 2020 Template by Iryna Makar. Всі права захищені.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="modal">
+      <form action="/register" method="POST">
+        <input type="text" id="name" name="name" required placeholder="ПІБ" />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Ваша електронна пошта"
+        />
+        <input type="text" placeholder="Ваш номер телефону" />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Пароль"
+        />
+        <input type="submit" id="registrationButton" value="Зареєструватися" />
+      </form>
+    </div>
+
+    <div id="modal1">
+      <form action="/login" method="POST">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Ваш логін"
+          required
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="Ваш пароль"
+        />
+        <input type="submit" value="Увійти" />
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.formstyler.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/checkAuth.js"></script>
+  </body>
+</html>
